@@ -1,0 +1,1 @@
+{"participantList":[{"name":"Henri","ekaCount":0},{"name":"Tiia","ekaCount":1}],"latestEka":{"seconds":1544301927,"nanos":226000000}}
