@@ -1,16 +1,14 @@
 package bot;
 
 import java.time.Instant;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 
 public class EkaState {
-    private ArrayList<Participant> participantList;
+    private HashMap<Integer, Participant> participantList;
     private Instant latestEka;
 
     public EkaState() {
-        participantList = new ArrayList<>();
+        participantList = new HashMap<>();
         latestEka = null;
     }
 
@@ -22,8 +20,48 @@ public class EkaState {
         return latestEka;
     }
 
-    public void addParticipant(Participant participant) {
-        participantList.add(participant);
+    public void addOrUpdateParticipant(Participant participant) {
+        participantList.put(participant.getId(), participant);
+    }
+
+    public Participant getParticipantById(int participantId) {
+        return participantList.get(participantId);
+    }
+
+
+    public String getScoreMessage() {
+        ArrayList<Participant> participants = getListSortedByScore();
+        StringBuilder sb = new StringBuilder();
+        sb.append("Current scoreboard:");
+        sb.append('\n');
+        for (int i = 0; i < participants.size(); i++) {
+            sb.append(participants.get(i).toString());
+            sb.append('\n');
+        }
+
+        return sb.toString();
+
+    }
+
+    private ArrayList<Participant> getListSortedByScore() {
+        ArrayList<Participant> participants = new ArrayList<>(participantList.values());
+        Collections.sort(participants);
+        return participants;
+        /*
+        ArrayList<Participant> participants = new ArrayList<>(participantList.values());
+        ArrayList<Participant> sortedList = new ArrayList<>();
+
+        while (participants.size() < 0) {
+            int highest = -1;
+            for (int i = 0; i < participants.size(); i++) {
+                if (participants.iterator().next()) {
+
+                }
+            }
+        }*/
+
+
+
     }
 
 

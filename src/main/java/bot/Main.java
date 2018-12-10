@@ -25,11 +25,11 @@ public class Main {
 
         EkaState state = new EkaState();
         state.setEka(Instant.now());
-        Participant p1 = new Participant("Henri", 0);
-        Participant p2 = new Participant("Tiia", 1);
+        //Participant p1 = new Participant("Henri", 0);
+        //Participant p2 = new Participant("Tiia", 1);
 
-        state.addParticipant(p1);
-        state.addParticipant(p2);
+        //state.addParticipant(p1);
+        //state.addParticipant(p2);
 
 
         Gson g = new Gson();
